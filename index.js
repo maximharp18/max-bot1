@@ -3,6 +3,7 @@ import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// ОБЯЗАТЕЛЬНО
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -10,9 +11,9 @@ app.get('/', (req, res) => {
 });
 
 app.post('/webhook', (req, res) => {
-  console.log('=== WEBHOOK ===');
-  console.log(req.headers);
-  console.log(JSON.stringify(req.body, null, 2));
+  console.log('===== WEBHOOK RECEIVED =====');
+  console.log('HEADERS:', req.headers);
+  console.log('BODY:', JSON.stringify(req.body, null, 2));
   res.sendStatus(200);
 });
 
